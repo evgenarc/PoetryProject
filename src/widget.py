@@ -15,10 +15,8 @@ def mask_account_card(card_info: str) -> str:
     return hidden_info
 
 
-import re
-
-
 def get_data(date: str) -> str:
+    """Принимает на вход строку с датой и возвращает ее в нужном формате"""
     only_date = re.search(r"\d{4}-\d{2}-\d{2}", date).group(0)
     year = only_date[:4]
     mounth = only_date[5:7]
