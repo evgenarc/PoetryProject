@@ -13,3 +13,14 @@ def mask_account_card(card_info: str) -> str:
 
         hidden_info = f"{first_part}******{second_part}"
     return hidden_info
+
+
+import re
+
+
+def get_data(date: str) -> str:
+    only_date = re.search(r"\d{4}-\d{2}-\d{2}", date).group(0)
+    year = only_date[:4]
+    mounth = only_date[5:7]
+    day = only_date[8:]
+    return f"{day}.{mounth}.{year}"
