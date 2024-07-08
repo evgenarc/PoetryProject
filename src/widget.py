@@ -1,17 +1,24 @@
+from masks import get_mask_card_number, get_mask_account
 import re
 
-
 def mask_account_card(card_info: str) -> str:
-    """Функция получает на вход данные о карте или счете и возвращает замаскированные данные"""
+    """Функция получает на вход данные о карте или счете и возвращает замаскированные данные
+    """
     # Проверка на счет или банковскую карту
-    hidden_info = ""
-    if card_info[0:4] == "Счет":
-        hidden_info = "Счет **" + card_info[-4:]
+    hidden_info = ''
+    if card_info.startswith("Счет"):
+        account_number = re.search(r'\d{20}', card_info)
+        if account_number:
+            hidden_info = "Счет " + get_mask_account(account_number.group(0))
+        else:
+            hidden_info = "Неверный номер счета"
     else:
-        first_part = re.search(r".+\s\d{6}", card_info).group(0)
-        second_part = re.search(r"\d{4}$", card_info).group(0)
+        card_number = re.search(r'\d{16}', card_info)
+        if card_number:
+            hidden_info = re.sub(r'\d{16}', get_mask_card_number(card_number.group(0)), card_info)
+        else:
+            hidden_info = "Неверный номер карты"
 
-        hidden_info = f"{first_part}******{second_part}"
     return hidden_info
 
 
