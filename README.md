@@ -6,7 +6,7 @@
 * black = "24.4.2"
 * sort = "5.13.2"
 * mypy = "1.10.0"
-The program uses the version Python 3.12.4
+* The program uses the version Python 3.12.4
 ## Используемые функции:
 * Функция маскирующая номер карты и счета
 * Функция сортировки по дате
