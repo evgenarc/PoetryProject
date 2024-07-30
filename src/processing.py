@@ -1,9 +1,13 @@
-def filter_by_state(data, state="EXECUTED"):
+from typing import List, Dict, Any
+
+
+def filter_by_state(data: List[Dict[str, Any]], state: str = "EXECUTED") -> List[Dict[str, Any]]:
     """Функция принимающая список словарей и опциональное значение для ключа
     state"""
-    return [item for item in data if item.get("state") == state]
+    return [d for d in data if d.get("state") == state]
 
 
-def sort_by_date(data, reverse=True):
+def sort_by_date(date_list: list, reverse_list: bool = True) -> list | bool:
     """Функция принимающая список словарей и параметр, задающий порядок сортировки (по умолчанию — убывание)"""
-    return sorted(data, key=lambda x: x["date"], reverse=reverse)
+    sorted_list = sorted(date_list, key=lambda date_dict: date_dict.get("date"), reverse=reverse_list)
+    return sorted_list
