@@ -18,3 +18,4 @@
 * Содержит тесты функционала с помощью pytest
 ## Разработчик проекта:
 * Evgeniy Artsebashev — Back-End developer
+* 
