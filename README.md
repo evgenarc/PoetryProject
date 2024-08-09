@@ -14,5 +14,8 @@
 ## Инструкция по установке:
 * Клонируйте репозиторий: git clone https://github.com/evgenarc/PoetryProject
 * Установите зависимости: pip install -r requirements.txt
+## Тестирование проекта:
+* Содержит тесты функционала с помощью pytest
 ## Разработчик проекта:
 * Evgeniy Artsebashev — Back-End developer
+* 
