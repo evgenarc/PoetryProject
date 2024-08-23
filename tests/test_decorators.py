@@ -1,4 +1,5 @@
 import pytest
+
 from src.decorators import log
 
 
@@ -33,7 +34,9 @@ def test_log_lack_argument(capsys):
         return x + y
 
     try:
-        my_function(1, )
+        my_function(
+            1,
+        )
     except TypeError as e:
         captured = capsys.readouterr()
         assert "my function error: " in captured.out

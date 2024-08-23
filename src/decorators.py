@@ -19,16 +19,17 @@ def log(filename: Any) -> Callable:
                     print(log_message)
             else:
                 print(log_message)
-#            return result
+
+        #            return result
         return wrapper
 
     return decorator
 
 
 @log(filename="test_log.txt")
-#@log(filename="")
+# @log(filename="")
 def my_function(x: int, y: int) -> int:
     return x + y
 
 
-#my_function(1,2)
+# my_function(1,2)
